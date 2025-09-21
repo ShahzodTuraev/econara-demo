@@ -27,9 +27,19 @@ const gasData = [
   { name: "토요일", value: 800 },
   { name: "일요일", value: 760 },
 ];
+const batData = [
+  { name: "월요일", value: 100 },
+  { name: "화요일", value: 97 },
+  { name: "수요일", value: 88 },
+  { name: "목요일", value: 70 },
+  { name: "금요일", value: 59 },
+  { name: "토요일", value: 48 },
+  { name: "일요일", value: 34 },
+];
 export default function SimpleLineChart({ type }: { type: string }) {
   console.log(type);
-  const data = type === "hum" ? humadityData : gasData;
+  const data =
+    type === "hum" ? humadityData : type === "gas" ? gasData : batData;
   console.log(data);
   return (
     <div style={{ width: "100%", height: 250 }}>

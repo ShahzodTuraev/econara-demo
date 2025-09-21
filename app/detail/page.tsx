@@ -61,9 +61,9 @@ export default function Dashboard() {
             {" "}
             CO<sub>2</sub>: (ppm)
           </h1>
-          <SimpleLineChart type={"bat"} />
-          <h1 className="px-3 font-bold py-1 text-gray-700">배터리 부족:</h1>
           <SimpleLineChart type={"gas"} />
+          <h1 className="px-3 font-bold py-1 text-gray-700">배터리 부족:</h1>
+          <SimpleLineChart type={"bat"} />
         </section>
       </div>
     </main>
