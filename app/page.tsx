@@ -1,5 +1,9 @@
 "use client";
+
+import { useRouter } from "next/navigation";
+
 export default function Home() {
+  const router = useRouter();
   return (
     <section className="bg-gray-50">
       <div className="flex min-h-screen flex-col items-center justify-center px-6 py-8 lg:py-0">
@@ -56,6 +60,7 @@ export default function Home() {
                 />
               </div>
               <button
+                onClick={() => router.push("/dashboard")}
                 type="submit"
                 className="w-full rounded-lg bg-green-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-4 focus:ring-green-300"
               >

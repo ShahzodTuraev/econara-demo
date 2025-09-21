@@ -6,10 +6,10 @@ export default function StatPage() {
   // INITIALIZATION
   const [active, setActive] = useState(0);
   const list = [
-    { id: 1, logo: "/img/check.svg", title: "전체 쓰레기통", count: 2 },
+    { id: 1, logo: "/img/check.svg", title: "전체 쓰레기통", count: 20 },
     { id: 2, logo: "/img/bin.svg", title: "가득참", count: 2 },
-    { id: 3, logo: "/img/battery.svg", title: "배터리 부족", count: 2 },
-    { id: 4, logo: "/img/wifi.svg", title: "오프라인", count: 2 },
+    { id: 3, logo: "/img/battery.svg", title: "배터리 부족", count: 3 },
+    { id: 4, logo: "/img/wifi.svg", title: "오프라인", count: 1 },
   ];
   //   HANDLER
   const selectHandler = () => {

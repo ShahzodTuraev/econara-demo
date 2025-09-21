@@ -2,11 +2,13 @@
 
 import { data } from "@/lib/devicedata";
 import { Pencil, Plus, Scan, Search, Trash } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export default function DeviceList() {
+  const router = useRouter();
   const deleteHandler = (serial: number) => {};
   return (
-    <main className="w-full p-1.5 bg-white h-140 shadow-sm rounded-md">
+    <main className="w-full p-1.5 bg-white h-190 shadow-sm rounded-md">
       <div className="flex justify-between align-center">
         <h2 className="font-semibold text-gray-800">쓰레기통</h2>
         <div className="flex gap-3 text-gray-600">
@@ -15,7 +17,7 @@ export default function DeviceList() {
           <Scan className="w-5 h-5 hover:text-gray-900 cursor-pointer" />
         </div>
       </div>
-      <div className="max-h-130 overflow-y-auto">
+      <div className="max-h-180 overflow-y-auto">
         <table className="w-full mt-2">
           <thead>
             <tr className="text-left text-gray-600 text-sm">
@@ -30,8 +32,9 @@ export default function DeviceList() {
             {data.map((item, index) => {
               return (
                 <tr
+                  onClick={() => router.push("detail")}
                   key={index}
-                  className="text-[13px] text-gray-700 border-b border-gray-300 hover:bg-gray-50"
+                  className="text-[13px] text-gray-700 cursor-pointer border-b border-gray-300 hover:bg-gray-50"
                 >
                   <td className="py-3">{item?.serialNum}</td>
                   <td className="py-3">{item?.address}</td>

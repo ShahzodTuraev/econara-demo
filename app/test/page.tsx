@@ -1,117 +1,76 @@
-"use client";
+// components/SensorDashboard.tsx
+import React from "react";
 
-import { useState } from "react";
-import { Pencil, Trash2 } from "lucide-react";
-
-export default function BinsTable() {
-  const [bins] = useState([
-    {
-      serial: "389021001228",
-      address: "10th St, 1126",
-      connection: "Online",
-      fullness: 0,
-      battery: 36,
-    },
-    {
-      serial: "389021001241",
-      address: "9th St, 1501",
-      connection: "Online",
-      fullness: 5,
-      battery: 25,
-    },
-    {
-      serial: "389021001250",
-      address: "23rd St, 1600",
-      connection: "Online",
-      fullness: 93,
-      battery: 89,
-    },
-    {
-      serial: "389021001264",
-      address: "Sepulveda Blvd, 1730",
-      connection: "Online",
-      fullness: 44,
-      battery: 14,
-    },
-  ]);
-
+const SensorDashboard = () => {
   return (
-    <div className="w-full max-w-4xl mx-auto bg-white shadow-md rounded-lg p-4">
-      <h2 className="text-lg font-semibold mb-3">Bins</h2>
+    <div className="p-6 space-y-6 bg-gray-50 min-h-screen">
+      {/* Top Section: Sensor Info + Map */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* Sensor Info Card */}
+        <div className="bg-white shadow rounded-xl p-6 space-y-4">
+          <h2 className="text-lg font-semibold">Sensor 389021001228</h2>
+          <div className="space-y-2 text-sm">
+            <p>
+              <span className="font-medium">Address:</span> 10th St, 1126
+            </p>
+            <p>
+              <span className="font-medium">Latitude:</span> 33.88556160962825
+            </p>
+            <p>
+              <span className="font-medium">Longitude:</span>{" "}
+              -118.39735616112131
+            </p>
+            <p>
+              <span className="font-medium">Fullness level:</span>{" "}
+              <span className="text-blue-600 font-semibold">58%</span>
+            </p>
+            <p>
+              <span className="font-medium">Battery level:</span>{" "}
+              <span className="text-red-600 font-semibold">27%</span>
+            </p>
+            <p>
+              <span className="font-medium">Connection:</span>{" "}
+              <span className="px-2 py-1 text-xs font-semibold bg-green-100 text-green-600 rounded">
+                Online
+              </span>
+            </p>
+            <p>
+              <span className="font-medium">Last update:</span> 22 Sep 2025
+              07:56
+            </p>
+          </div>
+        </div>
 
-      <div className="overflow-y-auto max-h-64">
-        <table className="w-full border-collapse">
-          <thead className="sticky top-0 bg-gray-100">
-            <tr className="text-left border-b">
-              <th className="p-2">Serial Number</th>
-              <th className="p-2">Address</th>
-              <th className="p-2">Connection</th>
-              <th className="p-2">Fullness</th>
-              <th className="p-2">Battery Level</th>
-              <th className="p-2 text-center">Actions</th>
+        {/* Map Placeholder */}
+        <div className="bg-white shadow rounded-xl h-80 flex items-center justify-center">
+          <p className="text-gray-500">[ Map Placeholder ]</p>
+        </div>
+      </div>
+
+      {/* Alarms Table */}
+      <div className="bg-white shadow rounded-xl p-6">
+        <h3 className="text-lg font-semibold mb-4">Alarms</h3>
+        <table className="w-full border-collapse text-sm">
+          <thead>
+            <tr className="text-left bg-gray-100">
+              <th className="p-3 border-b">Originator</th>
+              <th className="p-3 border-b">Created Time</th>
+              <th className="p-3 border-b">Type</th>
+              <th className="p-3 border-b">Details</th>
             </tr>
           </thead>
           <tbody>
-            {bins.map((bin, idx) => (
-              <tr key={idx} className="border-b hover:bg-gray-50">
-                <td className="p-2">{bin.serial}</td>
-                <td className="p-2">{bin.address}</td>
-                <td className="p-2">
-                  <span className="px-2 py-1 rounded-md text-sm bg-green-100 text-green-700">
-                    {bin.connection}
-                  </span>
-                </td>
-                <td
-                  className={`p-2 ${
-                    bin.fullness >= 80 ? "text-red-500 font-semibold" : ""
-                  }`}
-                >
-                  {bin.fullness}%
-                </td>
-                <td
-                  className={`p-2 ${
-                    bin.battery <= 20 ? "text-red-500 font-semibold" : ""
-                  }`}
-                >
-                  {bin.battery}%
-                </td>
-                <td className="p-2 flex justify-center gap-3">
-                  <button className="text-gray-600 hover:text-blue-600">
-                    <Pencil size={18} />
-                  </button>
-                  <button className="text-gray-600 hover:text-red-600">
-                    <Trash2 size={18} />
-                  </button>
-                </td>
-              </tr>
-            ))}
+            <tr className="hover:bg-gray-50">
+              <td className="p-3 border-b">389021001228</td>
+              <td className="p-3 border-b">2025-09-22 04:36:20</td>
+              <td className="p-3 border-b text-red-600">Low Battery Level</td>
+              <td className="p-3 border-b text-red-600">27%</td>
+            </tr>
           </tbody>
         </table>
       </div>
-      <div className=" max-h-60 overflow-y-auto border rounded-lg p-3">
-        <p>Item 1</p>
-        <p>Item 2</p>
-        <p>Item 3</p>
-        <p>Item 4</p>
-        <p>Item 5</p>
-        <p>Item 6</p>
-        <p>Item 7</p>
-        <p>Item 8</p>
-        <p>Item 8</p>
-        <p>Item 8</p>
-        <p>Item 8</p>
-        <p>Item 8</p>
-        <p>Item 8</p>
-        <p>Item 8</p>
-        <p>Item 8</p>
-        <p>Item 8</p>
-        <p>Item 8</p>
-        <p>Item 8</p>
-        <p>Item 8</p>
-        <p>Item 8</p>
-        <p>Item 8</p>
-        <p>Item 8</p>
-      </div>
     </div>
   );
-}
+};
+
+export default SensorDashboard;

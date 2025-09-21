@@ -1,7 +1,9 @@
-export default function NavbarPage() {
+export default function NavbarPage({ type }: { type: string }) {
   return (
     <main className="w-full bg-[#00695C] flex justify-between align-center shadow-md px-5 py-3 text-white">
-      <h1 className="text-xl font-semibold">EcoNara</h1>
+      <h1 className="text-xl font-semibold">
+        EcoNara {type === "detail" ? "> 쓰레기통 583748623" : ""}
+      </h1>
     </main>
   );
 }
