@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "EcoNara",
+  title: "에코나라",
   description: "This is demo for the project EcoNara",
 };
 

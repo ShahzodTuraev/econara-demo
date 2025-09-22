@@ -16,7 +16,7 @@ export default function Home() {
             src="/img/logo.png"
             alt="Flowbite logo"
           />
-          EcoNara
+          에코나라
         </a>
 
         <div className="w-full max-w-md rounded-lg  bg-white shadow">
