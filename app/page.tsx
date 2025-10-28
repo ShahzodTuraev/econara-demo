@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <section className="bg-gray-50">
       <div className="flex min-h-screen flex-col items-center justify-center px-6 py-8 lg:py-0">
-        <a
+        {/* <a
           href="#"
           className="mb-6 flex items-center text-2xl font-semibold text-gray-700"
         >
@@ -17,7 +17,8 @@ export default function Home() {
             alt="Flowbite logo"
           />
           에코나라
-        </a>
+        </a> */}
+        <img src="/img/fulllogo.png" alt="logo" className="mb-8" />
 
         <div className="w-full max-w-md rounded-lg  bg-white shadow">
           <div className="space-y-6 p-6 sm:p-8">
